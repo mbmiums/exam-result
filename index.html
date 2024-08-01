@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBM University - Exam Results</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the start (top) */
+            background: url('background.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        header img {
+            height: 50px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px; /* Reduced padding to make the box smaller */
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: white;
+            max-width: 300px; /* Set a max-width to limit the box size */
+            margin-top: 100px; /* Adjust margin-top to move the box upwards */
+        }
+        .container h1 {
+            margin-bottom: 10px; /* Reduced margin for a more compact look */
+            font-size: 16px; /* Reduced font size */
+        }
+        .container input[type="text"] {
+            padding: 10px; /* Original padding */
+            width: calc(100% - 22px); /* Original width */
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+        .container input[type="button"] {
+            padding: 5px 10px; /* Reduced padding */
+            background: #ff6600;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 14px; /* Reduced font size */
+            border-radius: 4px;
+            margin: 2px; /* Small margin between buttons */
+        }
+        .container input[type="button"]:hover {
+            background: #ff3300;
+        }
+        .container input[type="button"].reset {
+            background: #ccc;
+            color: black;
+        }
+        .container input[type="button"].reset:hover {
+            background: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="MBM University Logo">
+    </header>
+    <div class="container">
+        <h1>B.E.(CBCS) ENGINEERING 1st SEM Examination Result 2023 - 2024</h1>
+        <input type="text" id="rollNumber" placeholder="Roll Number">
+        <br>
+        <input type="button" value="Get Result" onclick="downloadResult()">
+        <input type="button" value="Reset" class="reset" onclick="resetField()">
+    </div>
+
+    <script>
+        function downloadResult() {
+            const rollNumber = document.getElementById('rollNumber').value;
+            if(rollNumber) {
+                window.location.href = 'result.pdf'; // Make sure this is the correct file path
+            } else {
+                alert('Please enter your roll number');
+            }
+        }
+        
+        function resetField() {
+            document.getElementById('rollNumber').value = '';
+        }
+    </script>
+</body>
+</html>
